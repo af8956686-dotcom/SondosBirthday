@@ -138,6 +138,15 @@ button:active { transform: scale(.96); }
   color: #ffe0f0;
 }
 
+.photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
 #musicButton { margin: 12px 0; }
 
 .heart {
@@ -265,10 +274,10 @@ footer {
 
     <h2>📸 لحظات كلها حب</h2>
     <div class="photos">
-      <div class="photo">🌹<span>إنتِ وردة الدنيا</span></div>
-      <div class="photo">🎂<span>أحلى عيد ميلاد</span></div>
-      <div class="photo">💌<span>رسالة من القلب</span></div>
-      <div class="photo">✨<span>أمنيات حلوة ليكي</span></div>
+      <div class="photo"><img src="1.jpg" alt=""></div>
+      <div class="photo"><img src="2.jpg" alt=""></div>
+      <div class="photo"><img src="3.jpg" alt=""></div>
+      <div class="photo"><img src="4.jpg" alt=""></div>
     </div>
 
     <h2>🎵 أغنيتك يا سندس</h2>
@@ -380,4 +389,4 @@ setInterval(() => {
 }, 1800);
 </script>
 </body>
-  </html>
+      </html>
