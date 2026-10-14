@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#3b082b">
+<title>عيد ميلاد سندس ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: white;
+  text-align: center;
+  font-family: Tahoma, Arial, sans-serif;
+  background:
+    radial-gradient(circle at top, #852052, transparent 55%),
+    linear-gradient(145deg, #19051e, #500d36, #17051f);
+}
+
+#stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  color: #ffb4da;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .15; transform: scale(.7); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  width: min(92%, 650px);
+  margin: auto;
+  padding: 35px 0 60px;
+}
+
+h1 {
+  color: #ffd1e7;
+  text-shadow: 0 0 20px #ff369d;
+  font-size: clamp(27px, 7vw, 42px);
+}
+
+p {
+  line-height: 2;
+  font-size: 17px;
+}
+
+button, input {
+  font: inherit;
+  border-radius: 14px;
+  padding: 13px 16px;
+}
+
+input {
+  width: 100%;
+  background: #fff5fb;
+  color: #40112f;
+  border: 2px solid #ff8bc7;
+  outline: none;
+  text-align: center;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: #571036;
+  background: linear-gradient(135deg, #ffd36f, #ff8ec8);
+  box-shadow: 0 5px 20px #ff5da555;
+  transition: transform .2s;
+}
+
+button:active { transform: scale(.96); }
+
+.login {
+  margin: 28px auto;
+  padding: 22px;
+  border: 1px solid #ff9acb88;
+  border-radius: 25px;
+  background: #ffffff0c;
+  backdrop-filter: blur(10px);
+}
+
+.login button { width: 100%; margin-top: 12px; }
+
+#message {
+  color: #ffb5d8;
+  min-height: 25px;
+}
+
+#surprise { display: none; }
+
+.letter {
+  padding: 22px;
+  margin: 25px 0;
+  border: 1px solid #ffc0df;
+  border-radius: 22px;
+  background: #ffffff12;
+  box-shadow: 0 0 30px #ff57ad22;
+}
+
+.letter p { white-space: normal; }
+
+.photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.photo {
+  min-height: 145px;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  border: 1px solid #ffb1d7;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #9d245f, #41103e);
+  font-size: 40px;
+}
+
+.photo span {
+  font-size: 14px;
+  color: #ffe0f0;
+}
+
+#musicButton { margin: 12px 0; }
+
+.heart {
+  position: fixed;
+  z-index: 5;
+  bottom: -40px;
+  pointer-events: none;
+  animation: floatUp 5s linear forwards;
+}
+
+@keyframes floatUp {
+  to { transform: translateY(-115vh) rotate(30deg); opacity: 0; }
+}
+
+/* ستارة القلوب */
+#curtain {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: flex;
+  overflow: hidden;
+  background: #26071e;
+}
+
+.panel {
+  width: 50%;
+  height: 100%;
+  background:
+    radial-gradient(circle, #ff9ccf 1.5px, transparent 2px) 0 0 / 27px 27px,
+    linear-gradient(135deg, #8f164e, #3b092d 60%, #9e1f5a);
+  transition: transform 2s cubic-bezier(.7, 0, .2, 1);
+  border: 1px solid #ffb1d8;
+}
+
+#curtain.open .left { transform: translateX(-100%); }
+#curtain.open .right { transform: translateX(100%); }
+
+#curtainText {
+  position: absolute;
+  z-index: 2;
+  top: 38%;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  color: #ffe1f1;
+  text-shadow: 0 0 20px #ff65b4;
+}
+
+#curtainText button { margin-top: 12px; }
+
+#curtain.open #curtainText {
+  opacity: 0;
+  transition: opacity .5s;
+  pointer-events: none;
+}
+
+footer {
+  color: #eeb9d5;
+  font-size: 13px;
+  margin-top: 35px;
+}
+
+@media (max-width: 380px) {
+  main { width: 94%; }
+  .letter { padding: 15px; }
+  .photos { gap: 8px; }
+}
+</style>
+</head>
+
+<body>
+<div id="stars"></div>
+
+<!-- ستارة القلوب -->
+<div id="curtain">
+  <div class="panel left"></div>
+  <div class="panel right"></div>
+  <div id="curtainText">
+    <h1>💗 مفاجأة لسندس 💗</h1>
+    <p>جاهزة تشوفي أحلى مفاجأة؟ 🎂</p>
+    <button onclick="openCurtain()">افتحي المفاجأة ❤️</button>
+  </div>
+</div>
+
+<main>
+  <h1>🎂 كل سنة وإنتِ طيبة يا سندس 🎂</h1>
+  <p>في مفاجأة صغيرة معمولة مخصوص عشانك 💖</p>
+
+  <section class="login" id="login">
+    <h2>🔐 المفاجأة سر بينا</h2>
+    <p>اكتبي كلمة السر عشان تفتحي رسالتك ❤️</p>
+    <form id="passwordForm">
+      <input
+        id="password"
+        type="password"
+        placeholder="كلمة السر..."
+        autocomplete="off"
+        required
+      >
+      <button type="submit">افتحي قلبي 💗</button>
+    </form>
+    <p id="message" role="status"></p>
+  </section>
+
+  <section id="surprise">
+    <h2>💞 لسندس، أجمل هدية 💞</h2>
+
+    <div class="letter">
+      <p>
+        كل سنة وإنتِ طيبة ومعايا يا روحي ❤️🎂
+        <br>
+        يا رب أيامك كلها تبقى فرحة وضحكة،
+        وقلبك دايمًا مليان حب وراحة.
+        <br>
+        أتمنى أشوفك دايمًا مبسوطة،
+        ويا رب نكمل مع بعض طول العمر،
+        ونفضل نحتفل بكل سنة جديدة وإحنا
+        بنصنع ذكريات أحلى من اللي قبلها. 💓
+        <br>
+        عيد ميلاد سعيد يا سندس،
+        وإنتِ تستاهلي كل حاجة حلوة في الدنيا. 💗
+      </p>
+      <div style="font-size:32px">💗 💖 💕 💘</div>
+    </div>
+
+    <h2>📸 لحظات كلها حب</h2>
+    <div class="photos">
+      <div class="photo">🌹<span>إنتِ وردة الدنيا</span></div>
+      <div class="photo">🎂<span>أحلى عيد ميلاد</span></div>
+      <div class="photo">💌<span>رسالة من القلب</span></div>
+      <div class="photo">✨<span>أمنيات حلوة ليكي</span></div>
+    </div>
+
+    <h2>🎵 أغنيتك يا سندس</h2>
+    <p>شغّلي الأغنية واستمتعي بالمفاجأة 💕</p>
+    <audio id="song" src="song.mp3" preload="auto"></audio>
+    <button id="musicButton" onclick="toggleMusic()">
+      ▶️ تشغيل الأغنية
+    </button>
+    <p id="musicStatus" role="status"></p>
+
+    <p style="font-size:24px;color:#ffd1e7">
+      كل سنة وإنتِ أجمل حكاية ❤️
+    </p>
+  </section>
+
+  <footer>صُممت بكل الحب لسندس 💗</footer>
+</main>
+
+<script>
+const stars = document.getElementById("stars");
+
+for (let i = 0; i < 65; i++) {
+  const star = document.createElement("span");
+  star.className = "star";
+  star.textContent = Math.random() > 0.5 ? "✦" : "♥";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.fontSize = (8 + Math.random() * 14) + "px";
+  star.style.animationDelay = Math.random() * 3 + "s";
+  stars.appendChild(star);
+}
+
+function openCurtain() {
+  document.getElementById("curtain").classList.add("open");
+  setTimeout(() => {
+    document.getElementById("curtain").style.display = "none";
+  }, 2200);
+}
+
+document.getElementById("passwordForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const entered = document.getElementById("password").value
+    .trim()
+    .toLowerCase();
+
+  if (entered === "love") {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("surprise").style.display = "block";
+    document.getElementById("message").textContent = "";
+    burstHearts(35);
+  } else {
+    document.getElementById("message").textContent =
+      "جربي تاني يا قمر 💗";
+  }
+});
+
+function burstHearts(count = 12) {
+  for (let i = 0; i < count; i++) {
+    setTimeout(() => {
+      const heart = document.createElement("span");
+      heart.className = "heart";
+      heart.textContent = ["💗", "💖", "💕", "❤️", "💘"][
+        Math.floor(Math.random() * 5)
+      ];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (18 + Math.random() * 24) + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5200);
+    }, i * 80);
+  }
+}
+
+const song = document.getElementById("song");
+const musicButton = document.getElementById("musicButton");
+const musicStatus = document.getElementById("musicStatus");
+
+async function toggleMusic() {
+  if (song.paused) {
+    try {
+      await song.play();
+      musicButton.textContent = "⏸️ إيقاف الأغنية";
+      musicStatus.textContent = "الأغنية شغالة عشانك يا سندس 💗";
+    } catch (error) {
+      musicStatus.textContent =
+        "مش قادر أشغل الأغنية. تأكد إن ملف song.mp3 موجود جنب index.html.";
+    }
+  } else {
+    song.pause();
+    musicButton.textContent = "▶️ تشغيل الأغنية";
+    musicStatus.textContent = "الأغنية متوقفة مؤقتًا 💕";
+  }
+}
+
+song.addEventListener("ended", () => {
+  musicButton.textContent = "▶️ تشغيل الأغنية";
+  musicStatus.textContent = "نتمنى تكون الأغنية عجبتك يا سندس 💗";
+});
+
+song.addEventListener("error", () => {
+  musicStatus.textContent =
+    "ملف الأغنية مش موجود أو مش قابل للتشغيل. راجع اسم الملف.";
+});
+
+setInterval(() => {
+  if (document.getElementById("surprise").style.display === "block") {
+    burstHearts(2);
+  }
+}, 1800);
+</script>
+</body>
+  </html>
